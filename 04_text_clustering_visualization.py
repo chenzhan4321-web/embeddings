@@ -403,9 +403,6 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Intelligentia artificialis mundum nostrum transformat",
         "Computatio quantica potentiam computandi magnopere auget",
-        # Ancient Greek sentences
-        "Ἡ τεχνητὴ νόησις μεταβάλλει τὸν βίον ἡμῶν",
-        "Ἡ μηχανικὴ μάθησις ἀναλύει μεγάλα δεδομένα",
     ]
 
     # Food - Words, Phrases, and Sentences
@@ -429,9 +426,6 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Cibus Italicus in toto mundo amatur et laudatur",
         "Panis recens ex furno optimum saporem et odorem habet",
-        # Ancient Greek sentences
-        "Ἡ Ἑλληνικὴ μαγειρικὴ ὑγιεινή ἐστι καὶ ἡδεῖα",
-        "Ὁ νέος ἄρτος εὐωδίαν θαυμασίαν ἔχει ἑκάστης ἕω",
     ]
 
     # Sports - Words, Phrases, and Sentences
@@ -455,9 +449,6 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Mens sana in corpore sano per exercitationem",
         "Exercitatio quotidiana sanitatem corporis et animi servat",
-        # Ancient Greek sentences
-        "Ἡ ἄσκησις σπουδαία ἐστι πρὸς τὴν ὑγίειαν",
-        "Ὁ ἀθλητισμὸς ἰσχυροποιεῖ τὸ σῶμα καὶ τὴν ψυχήν",
     ]
 
     # Travel - Words, Phrases, and Sentences
@@ -481,9 +472,6 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Roma aeterna urbs plena historia et cultura est",
         "Peregrinatio mentem aperit et animum recreat semper",
-        # Ancient Greek sentences
-        "Αἱ Ἑλληνικαὶ νῆσοι καλαί εἰσι καὶ γραφικαί",
-        "Ἡ ἀποδημία διευρύνει τοὺς ὁρίζοντας καὶ πλουτίζει",
     ]
 
     # 组合数据

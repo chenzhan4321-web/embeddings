@@ -180,23 +180,21 @@ def main():
         "Apprentissage Automatique",  # French
         "Maschinelles Lernen",  # German
         "Machina Discendi",  # Latin
-        "Μηχανικὴ Μάθησις",  # Ancient Greek (with polytonic accents)
-        "機械学習",  # Japanese
     ]
 
     print("Same concept 'Machine Learning' in different languages:")
     for i, word in enumerate(multilingual_words):
-        lang_names = ["Chinese", "English", "French", "German", "Latin", "Greek", "Japanese"]
+        lang_names = ["Chinese", "English", "French", "German", "Latin"]
         print(f"  {lang_names[i]:10}: {word}")
 
     print("\nGenerating embeddings for multilingual words...")
     ml_word_embeddings = model.encode(multilingual_words, convert_to_tensor=True)
     ml_word_similarities = util.cos_sim(ml_word_embeddings, ml_word_embeddings)
 
-    print("\nSimilarity Matrix (7 languages × 7 languages):")
+    print("\nSimilarity Matrix (5 languages × 5 languages):")
     print("-" * 80)
     # Print header
-    lang_short = ["CN", "EN", "FR", "DE", "LA", "GR", "JA"]
+    lang_short = ["CN", "EN", "FR", "DE", "LA"]
     print(f"{'':15}", end="")
     for lang in lang_short:
         print(f"{lang:7}", end="")
@@ -212,9 +210,9 @@ def main():
     print("\nKey observations:")
     print(f"  Chinese vs English:  {ml_word_similarities[0][1]:.4f} (cross-language, same concept)")
     print(f"  English vs German:   {ml_word_similarities[1][3]:.4f} (both Germanic languages)")
-    print(f"  Latin vs Greek:      {ml_word_similarities[4][5]:.4f} (ancient languages)")
-    print(f"  Chinese vs Japanese: {ml_word_similarities[0][6]:.4f} (similar writing systems)")
+    print(f"  English vs Latin:    {ml_word_similarities[1][4]:.4f} (modern vs ancient)")
     print(f"  French vs German:    {ml_word_similarities[2][3]:.4f} (European languages)")
+    print(f"  French vs Latin:     {ml_word_similarities[2][4]:.4f} (French derived from Latin)")
 
     # Summary
     print("\n" + "=" * 80)
@@ -225,7 +223,7 @@ def main():
     print("  2. Longer texts provide more context and richer semantic information")
     print("  3. Texts at different granularities on the same topic (word→phrase→sentence) have high semantic similarity")
     print("  4. The model can capture semantic information at all granularities from words to sentences")
-    print("  5. The model supports 100+ languages including Chinese, English, Latin, Greek, etc.")
+    print("  5. The model supports 100+ languages including Chinese, English, French, German, Latin, etc.")
     print("  6. Same concepts across different languages show high semantic similarity")
     print("=" * 80)
 
