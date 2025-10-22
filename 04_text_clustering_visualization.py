@@ -477,10 +477,10 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
     # 组合数据
     all_texts = tech_texts + food_texts + sport_texts + travel_texts
     all_labels = (
-        ["科技"] * len(tech_texts) +
-        ["美食"] * len(food_texts) +
-        ["运动"] * len(sport_texts) +
-        ["旅游"] * len(travel_texts)
+        ["Technology"] * len(tech_texts) +
+        ["Food"] * len(food_texts) +
+        ["Sports"] * len(sport_texts) +
+        ["Travel"] * len(travel_texts)
     )
 
     return all_texts, all_labels
@@ -503,13 +503,13 @@ def main():
     print("=" * 80)
 
     # 1. Create visualization tool
-    print("\n[1/7] Initializing visualization tool...")
+    print("\n[1/6] Initializing visualization tool...")
     config.print_model_info()
     print()
     visualizer = TextClusteringVisualizer()
 
     # 2. Prepare data
-    print("\n[2/7] Preparing sample dataset...")
+    print("\n[2/6] Preparing sample dataset...")
     texts, labels = create_sample_dataset()
     print(f"Dataset contains {len(texts)} texts (words, phrases, and sentences)")
     print(f"Divided into {len(set(labels))} categories")
@@ -517,51 +517,32 @@ def main():
 
     visualizer.prepare_data(texts, labels)
 
-    # 3. K-means clustering
-    print("\n[3/7] Performing K-means clustering...")
-    n_clusters = len(set(labels))  # Use number of true categories
-    visualizer.cluster_kmeans(n_clusters=n_clusters)
-
-    # 4. t-SNE dimensionality reduction (2D)
-    print("\n[4/7] Reducing dimensions to 2D using t-SNE...")
+    # 3. t-SNE dimensionality reduction (2D)
+    print("\n[3/6] Reducing dimensions to 2D using t-SNE...")
     visualizer.reduce_dimensions_tsne(n_components=2, perplexity=15)
 
-    # 5. Create 2D visualizations
-    print("\n[5/7] Creating 2D visualizations...")
+    # 4. Create 2D visualization
+    print("\n[4/6] Creating 2D visualization...")
 
     # Color by true labels
     fig_2d_label = visualizer.visualize_2d(
-        title="Text Clustering Visualization - Colored by True Category (t-SNE 2D)",
+        title="Text Clustering Visualization - Colored by Category (t-SNE 2D)",
         color_by="label",
         save_path="clustering_2d_by_label.html"
     )
 
-    # Color by cluster results
-    fig_2d_cluster = visualizer.visualize_2d(
-        title="Text Clustering Visualization - Colored by K-means Clusters (t-SNE 2D)",
-        color_by="cluster",
-        save_path="clustering_2d_by_cluster.html"
-    )
-
-    # 6. t-SNE dimensionality reduction (3D)
-    print("\n[6/7] Reducing dimensions to 3D using t-SNE...")
+    # 5. t-SNE dimensionality reduction (3D)
+    print("\n[5/6] Reducing dimensions to 3D using t-SNE...")
     visualizer.reduce_dimensions_tsne(n_components=3, perplexity=15)
 
-    # 7. Create 3D visualizations
-    print("\n[7/7] Creating 3D visualizations...")
+    # 6. Create 3D visualization
+    print("\n[6/6] Creating 3D visualization...")
 
     # Color by true labels
     fig_3d_label = visualizer.visualize_3d(
-        title="Text Clustering Visualization - Colored by True Category (t-SNE 3D)",
+        title="Text Clustering Visualization - Colored by Category (t-SNE 3D)",
         color_by="label",
         save_path="clustering_3d_by_label.html"
-    )
-
-    # Color by cluster results
-    fig_3d_cluster = visualizer.visualize_3d(
-        title="Text Clustering Visualization - Colored by K-means Clusters (t-SNE 3D)",
-        color_by="cluster",
-        save_path="clustering_3d_by_cluster.html"
     )
 
     # UMAP dimensionality reduction (if available)
@@ -571,7 +552,7 @@ def main():
         # UMAP 2D
         visualizer.reduce_dimensions_umap(n_components=2, n_neighbors=15)
         fig_umap_2d = visualizer.visualize_2d(
-            title="Text Clustering Visualization - Colored by True Category (UMAP 2D)",
+            title="Text Clustering Visualization - Colored by Category (UMAP 2D)",
             color_by="label",
             save_path="clustering_umap_2d.html"
         )
@@ -579,7 +560,7 @@ def main():
         # UMAP 3D
         visualizer.reduce_dimensions_umap(n_components=3, n_neighbors=15)
         fig_umap_3d = visualizer.visualize_3d(
-            title="Text Clustering Visualization - Colored by True Category (UMAP 3D)",
+            title="Text Clustering Visualization - Colored by Category (UMAP 3D)",
             color_by="label",
             save_path="clustering_umap_3d.html"
         )
@@ -589,14 +570,12 @@ def main():
     print("✓ Text clustering visualization completed!")
     print("=" * 80)
     print("\nGenerated visualization files:")
-    print("  1. clustering_2d_by_label.html      - 2D visualization (by true category)")
-    print("  2. clustering_2d_by_cluster.html    - 2D visualization (by clustering result)")
-    print("  3. clustering_3d_by_label.html      - 3D visualization (by true category)")
-    print("  4. clustering_3d_by_cluster.html    - 3D visualization (by clustering result)")
+    print("  1. clustering_2d_by_label.html      - 2D visualization (t-SNE)")
+    print("  2. clustering_3d_by_label.html      - 3D visualization (t-SNE)")
 
     if UMAP_AVAILABLE:
-        print("  5. clustering_umap_2d.html          - UMAP 2D visualization")
-        print("  6. clustering_umap_3d.html          - UMAP 3D visualization")
+        print("  3. clustering_umap_2d.html          - UMAP 2D visualization")
+        print("  4. clustering_umap_3d.html          - UMAP 3D visualization")
 
     print("\nOpen these HTML files in a browser to view interactive visualizations!")
     print("\nTips:")
