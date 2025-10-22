@@ -400,6 +400,12 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         "Neural networks require massive amounts of training data",
         "Quantum computing will solve previously intractable problems",
         "Blockchain ensures transparent and immutable transactions",
+        # Latin sentences
+        "Intelligentia artificialis mundum nostrum transformat",
+        "Computatio quantica potentiam computandi magnopere auget",
+        # Greek sentences
+        "Η τεχνητή νοημοσύνη αλλάζει τη ζωή μας",
+        "Η μηχανική μάθηση αναλύει μεγάλα δεδομένα",
     ]
 
     # Food - Words, Phrases, and Sentences
@@ -420,6 +426,12 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         "The chocolate lava cake has a perfectly gooey center",
         "Authentic Thai curry balances spicy, sweet, and savory flavors",
         "Freshly baked croissants are flaky, buttery, and irresistible",
+        # Latin sentences
+        "Cibus Italicus in toto mundo amatur et laudatur",
+        "Panis recens ex furno optimum saporem et odorem habet",
+        # Greek sentences
+        "Η ελληνική κουζίνα είναι πολύ υγιεινή και νόστιμη",
+        "Το φρέσκο ψωμί μυρίζει υπέροχα κάθε πρωί",
     ]
 
     # Sports - Words, Phrases, and Sentences
@@ -440,6 +452,12 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         "Weight training builds muscle strength and improves metabolism",
         "Yoga improves flexibility, balance, and mental clarity",
         "Playing tennis enhances hand-eye coordination and agility",
+        # Latin sentences
+        "Mens sana in corpore sano per exercitationem",
+        "Exercitatio quotidiana sanitatem corporis et animi servat",
+        # Greek sentences
+        "Η άσκηση είναι πολύ σημαντική για την υγεία",
+        "Ο αθλητισμός ενισχύει το σώμα και το πνεύμα",
     ]
 
     # Travel - Words, Phrases, and Sentences
@@ -460,6 +478,12 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         "The Northern Lights in Norway are a spectacular natural phenomenon",
         "Tropical beaches in the Caribbean provide the perfect relaxation",
         "Hiking through the Amazon rainforest is an unforgettable adventure",
+        # Latin sentences
+        "Roma aeterna urbs plena historia et cultura est",
+        "Peregrinatio mentem aperit et animum recreat semper",
+        # Greek sentences
+        "Τα ελληνικά νησιά είναι πολύ όμορφα και γραφικά",
+        "Το ταξίδι διευρύνει τους ορίζοντες και εμπλουτίζει",
     ]
 
     # 组合数据
