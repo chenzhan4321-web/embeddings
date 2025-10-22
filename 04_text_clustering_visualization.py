@@ -403,9 +403,9 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Intelligentia artificialis mundum nostrum transformat",
         "Computatio quantica potentiam computandi magnopere auget",
-        # Greek sentences
-        "Η τεχνητή νοημοσύνη αλλάζει τη ζωή μας",
-        "Η μηχανική μάθηση αναλύει μεγάλα δεδομένα",
+        # Ancient Greek sentences
+        "Ἡ τεχνητὴ νόησις μεταβάλλει τὸν βίον ἡμῶν",
+        "Ἡ μηχανικὴ μάθησις ἀναλύει μεγάλα δεδομένα",
     ]
 
     # Food - Words, Phrases, and Sentences
@@ -429,9 +429,9 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Cibus Italicus in toto mundo amatur et laudatur",
         "Panis recens ex furno optimum saporem et odorem habet",
-        # Greek sentences
-        "Η ελληνική κουζίνα είναι πολύ υγιεινή και νόστιμη",
-        "Το φρέσκο ψωμί μυρίζει υπέροχα κάθε πρωί",
+        # Ancient Greek sentences
+        "Ἡ Ἑλληνικὴ μαγειρικὴ ὑγιεινή ἐστι καὶ ἡδεῖα",
+        "Ὁ νέος ἄρτος εὐωδίαν θαυμασίαν ἔχει ἑκάστης ἕω",
     ]
 
     # Sports - Words, Phrases, and Sentences
@@ -455,9 +455,9 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Mens sana in corpore sano per exercitationem",
         "Exercitatio quotidiana sanitatem corporis et animi servat",
-        # Greek sentences
-        "Η άσκηση είναι πολύ σημαντική για την υγεία",
-        "Ο αθλητισμός ενισχύει το σώμα και το πνεύμα",
+        # Ancient Greek sentences
+        "Ἡ ἄσκησις σπουδαία ἐστι πρὸς τὴν ὑγίειαν",
+        "Ὁ ἀθλητισμὸς ἰσχυροποιεῖ τὸ σῶμα καὶ τὴν ψυχήν",
     ]
 
     # Travel - Words, Phrases, and Sentences
@@ -481,9 +481,9 @@ def create_sample_dataset() -> Tuple[List[str], List[str]]:
         # Latin sentences
         "Roma aeterna urbs plena historia et cultura est",
         "Peregrinatio mentem aperit et animum recreat semper",
-        # Greek sentences
-        "Τα ελληνικά νησιά είναι πολύ όμορφα και γραφικά",
-        "Το ταξίδι διευρύνει τους ορίζοντες και εμπλουτίζει",
+        # Ancient Greek sentences
+        "Αἱ Ἑλληνικαὶ νῆσοι καλαί εἰσι καὶ γραφικαί",
+        "Ἡ ἀποδημία διευρύνει τοὺς ὁρίζοντας καὶ πλουτίζει",
     ]
 
     # 组合数据

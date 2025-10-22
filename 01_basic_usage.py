@@ -180,7 +180,7 @@ def main():
         "Apprentissage Automatique",  # French
         "Maschinelles Lernen",  # German
         "Machina Discendi",  # Latin
-        "Μηχανική Μάθηση",  # Greek
+        "Μηχανικὴ Μάθησις",  # Ancient Greek (with polytonic accents)
         "機械学習",  # Japanese
     ]
 

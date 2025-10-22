@@ -131,7 +131,7 @@ def main():
         "L'apprentissage automatique est une branche de l'intelligence artificielle",  # French
         "Maschinelles Lernen ist ein Zweig der künstlichen Intelligenz",  # German
         "Machina discendi est ramus intelligentiae artificialis",  # Latin
-        "Η μηχανική μάθηση είναι ένας κλάδος της τεχνητής νοημοσύνης",  # Greek
+        "Ἡ μηχανικὴ μάθησίς ἐστι κλάδος τῆς τεχνητῆς νοήσεως",  # Ancient Greek
         "El aprendizaje automático es una rama de la inteligencia artificial",  # Spanish
         "機械学習は人工知能の一分野です",  # Japanese
 
@@ -141,7 +141,7 @@ def main():
         "Il fait beau aujourd'hui",  # French
         "Das Wetter ist heute schön",  # German
         "Hodie tempestas bona est",  # Latin
-        "Ο καιρός είναι ωραίος σήμερα",  # Greek
+        "Ὁ καιρὸς καλός ἐστι σήμερον",  # Ancient Greek
         "El clima está agradable hoy",  # Spanish
         "今日は天気が良いです",  # Japanese
     ]
