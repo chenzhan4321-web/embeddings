@@ -125,27 +125,78 @@ def main():
     print("=" * 80)
 
     multilingual_texts = [
-        "机器学习是人工智能的分支",
-        "Machine learning is a branch of artificial intelligence",
-        "今天天气很好",
-        "The weather is nice today",
+        # Topic 1: Machine Learning (8 languages)
+        "机器学习是人工智能的分支",  # Chinese
+        "Machine learning is a branch of artificial intelligence",  # English
+        "L'apprentissage automatique est une branche de l'intelligence artificielle",  # French
+        "Maschinelles Lernen ist ein Zweig der künstlichen Intelligenz",  # German
+        "Machina discendi est ramus intelligentiae artificialis",  # Latin
+        "Η μηχανική μάθηση είναι ένας κλάδος της τεχνητής νοημοσύνης",  # Greek
+        "El aprendizaje automático es una rama de la inteligencia artificial",  # Spanish
+        "機械学習は人工知能の一分野です",  # Japanese
+
+        # Topic 2: Weather (8 languages)
+        "今天天气很好",  # Chinese
+        "The weather is nice today",  # English
+        "Il fait beau aujourd'hui",  # French
+        "Das Wetter ist heute schön",  # German
+        "Hodie tempestas bona est",  # Latin
+        "Ο καιρός είναι ωραίος σήμερα",  # Greek
+        "El clima está agradable hoy",  # Spanish
+        "今日は天気が良いです",  # Japanese
     ]
 
     print("\n[4/4] Multilingual test texts:")
-    for i, text in enumerate(multilingual_texts, 1):
-        print(f"  Text{i}: {text}")
+    print("\n  Topic 1 - Machine Learning (8 languages):")
+    for i in range(8):
+        lang_names = ["Chinese", "English", "French", "German", "Latin", "Greek", "Spanish", "Japanese"]
+        print(f"    {lang_names[i]:10}: {multilingual_texts[i]}")
+
+    print("\n  Topic 2 - Weather (8 languages):")
+    for i in range(8, 16):
+        lang_names = ["Chinese", "English", "French", "German", "Latin", "Greek", "Spanish", "Japanese"]
+        print(f"    {lang_names[i-8]:10}: {multilingual_texts[i]}")
 
     print("\nCalculating cross-language similarity...")
     ml_embeddings = model.encode(multilingual_texts, convert_to_tensor=True)
     ml_similarities = util.cos_sim(ml_embeddings, ml_embeddings)
 
-    print_similarity_matrix(multilingual_texts, ml_similarities)
+    print("\nSimilarity Matrix (showing first 8 texts - Machine Learning topic):")
+    print("-" * 80)
+    # Print header
+    print(f"{'':15}", end="")
+    for i in range(8):
+        print(f"Lang{i+1:2d}  ", end="")
+    print()
+
+    # Print each row
+    lang_short = ["CN", "EN", "FR", "DE", "LA", "GR", "ES", "JA"]
+    for i in range(8):
+        print(f"Lang{i+1:2d} ({lang_short[i]:2}):   ", end="")
+        for j in range(8):
+            sim_value = ml_similarities[i][j].item()
+            print(f"{sim_value:6.3f}  ", end="")
+        print()
 
     print("\nCross-language similarity analysis:")
-    print(f"  Chinese1 vs English1: {ml_similarities[0][1]:.4f} (same meaning)")
-    print(f"  Chinese2 vs English2: {ml_similarities[2][3]:.4f} (same meaning)")
-    print(f"  Chinese1 vs Chinese2: {ml_similarities[0][2]:.4f} (different meaning)")
-    print(f"  English1 vs English2: {ml_similarities[1][3]:.4f} (different meaning)")
+    print("\n  Same topic across different languages (should be high):")
+    print(f"    Chinese (ML) vs English (ML):  {ml_similarities[0][1]:.4f}")
+    print(f"    Chinese (ML) vs French (ML):   {ml_similarities[0][2]:.4f}")
+    print(f"    Chinese (ML) vs Latin (ML):    {ml_similarities[0][4]:.4f}")
+    print(f"    Chinese (ML) vs Greek (ML):    {ml_similarities[0][5]:.4f}")
+    print(f"    English (ML) vs German (ML):   {ml_similarities[1][3]:.4f}")
+    print(f"    Latin (ML) vs Greek (ML):      {ml_similarities[4][5]:.4f}")
+
+    print("\n  Different topics in same language (should be lower):")
+    print(f"    Chinese (ML) vs Chinese (Weather):   {ml_similarities[0][8]:.4f}")
+    print(f"    English (ML) vs English (Weather):   {ml_similarities[1][9]:.4f}")
+    print(f"    Latin (ML) vs Latin (Weather):       {ml_similarities[4][12]:.4f}")
+    print(f"    Greek (ML) vs Greek (Weather):       {ml_similarities[5][13]:.4f}")
+
+    print("\n  Cross-topic cross-language (should be lowest):")
+    print(f"    Chinese (ML) vs English (Weather):   {ml_similarities[0][9]:.4f}")
+    print(f"    English (ML) vs Chinese (Weather):   {ml_similarities[1][8]:.4f}")
+    print(f"    Latin (ML) vs Greek (Weather):       {ml_similarities[4][13]:.4f}")
 
     print("\n" + "=" * 80)
     print("✓ Text similarity calculation example completed!")
